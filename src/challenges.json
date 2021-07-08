@@ -1,0 +1,37 @@
+[
+  {
+    "type": 1,
+    "description": "Fazer alongamento",
+    "amount": 80
+  },
+  {
+    "type": 2,
+    "description": "Fazer alongamento 2",
+    "amount": 88
+  },
+  {
+    "type": 3,
+    "description": "Fazer alongamento 3",
+    "amount": 100
+  },
+  {
+    "type": 4,
+    "description": "Fazer alongamento 4",
+    "amount": 200
+  },
+  {
+    "type": 5,
+    "description": "Fazer alongamento 5",
+    "amount": 50
+  },
+  {
+    "type": 3,
+    "description": "Fazer alongamento 6",
+    "amount": 60
+  },
+  {
+    "type": 0,
+    "description": "Fazer alongamento 7",
+    "amount": 70
+  }
+]

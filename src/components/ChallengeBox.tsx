@@ -1,69 +1,42 @@
-import { useEffect } from 'react';
+import { useContext } from 'react';
 import styles from '../styles/components/ChallengeBox.module.css'
-import { Countdown } from './Countdown'
+import { ChallengesContext } from '../contexts/ChallengesContext';
+import { CountdownContext } from '../contexts/CountdownContext';
 
 export function ChallengeBox() {
 
-    const hasActiveChallenge = true;
-    let isActive = false;
+    const { activeChallenge, resetChallenge, comĺeteChallenge } = useContext(ChallengesContext)
+    const { resetCountdown } = useContext(CountdownContext)
 
-    function cancelExercise() {
-        console.log('pular ...')
+    function handleChallengeSucceeded() {
+        comĺeteChallenge();
+        resetCountdown();
     }
 
-    function startCountdownExercise() {
-        setTimeout(() => {
-            isActive = true
-        })
+    function handleChallengeFailed() {
+        resetChallenge();
+        resetCountdown();
     }
-
-    function ActiveChallenge() {
-        console.log('finalizou')
-    }
-
-    useEffect(() => {
-        setTimeout(() => {
-            isActive = true
-        }, 5000)
-    }, [])
-
-    useEffect(() => {
-        if (hasActiveChallenge) {
-
-        }
-
-    }, [hasActiveChallenge])
 
     return (
         <div className={styles.challengeBoxContainer}>
-            {hasActiveChallenge ?
+            {activeChallenge ?
                 (
                     <div className={styles.challengeActive}>
-                        <header>Ganhe 400 xp</header>
+                        <header>Ganhe {activeChallenge.amount} xp</header>
 
                         <main>
-                            <img src="icons/exercise-2.png" />
+                            <img src={`icons/exercise-${activeChallenge.type}.png`} />
                             <strong>Novo desafio</strong>
-                            <p>Levante e faça uma caminhada</p>
+                            <p>{activeChallenge.description}</p>
                         </main>
                         <footer>
-                            {isActive && (
-                                <button type="button" onClick={cancelExercise} className={styles.challengeButton}>
-                                    Iniciando em...
-                                </button> 
-                                
-                            )}
-
-                            {isActive ? (
-                                <Countdown time={0.1} isActive={true} ActiveChallenge={ActiveChallenge} />
-                            ) : (
-                                <button type="button" onClick={cancelExercise} className={styles.challengeButton}>
-                                    Pular exercicio
-                                </button>
-                            )
-                            }
-
-
+                            <button type="button" onClick={handleChallengeFailed} className={styles.challengeButton}>
+                                Pular
+                            </button>
+                            <button type="button" onClick={handleChallengeSucceeded} className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
+                                Completo
+                            </button>
                         </footer>
                     </div>
                 ) : (
@@ -79,3 +52,17 @@ export function ChallengeBox() {
         </div >
     );
 }
+
+// {isActive && (
+//     <button type="button" onClick={cancelExercise} className={styles.challengeButton}>
+//         Iniciando em...
+//     </button> 
+
+// )}
+
+// {isActive ? (
+//     <Countdown time={0.1} isActive={true} ActiveChallenge={ActiveChallenge} />
+// ) : (
+//     
+// )
+// }
