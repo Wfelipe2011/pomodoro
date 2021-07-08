@@ -1,4 +1,5 @@
 
+import { ChallengeBox } from './components/ChallengeBox';
 import { CompletedChallenges } from './components/CompletedChallenges';
 import { Countdown } from './components/Countdown';
 import { ExperienceBar } from './components/ExperienceBar';
@@ -13,9 +14,11 @@ function App() {
         <div>
           <Profile />
           <CompletedChallenges />
-          <Countdown />
+          <Countdown time={0.2} isActive={false} />
         </div>
-        <div></div>
+        <div>
+          <ChallengeBox />
+        </div>
       </section>
     </div>
 
