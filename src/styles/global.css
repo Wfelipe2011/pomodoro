@@ -37,6 +37,9 @@ body {
         padding: 25px;
         max-width: 100vw;
     }
+    .none {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -54,6 +57,10 @@ body {
        
         margin: 0 auto;
         padding: 2.5rem 2rem;
+    }
+
+    .none {
+        display: block;
     }
 
     .container section {

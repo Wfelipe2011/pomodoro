@@ -69,6 +69,7 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
                 body: `Valendo ${challenge.amount}xp!`
             })
         }
+
     }
 
     function resetChallenge() {
