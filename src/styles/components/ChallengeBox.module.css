@@ -1,3 +1,18 @@
+@media (min-with: 0) {
+    .challengeBoxContainer {
+        width: 100vw;
+        background-color: red;
+    }
+}
+
+@media (min-with: 768px) {
+}
+
+@media (min-with: 1024) {
+}
+
+@media (min-with: 1044) {
+}
 .challengeBoxContainer {
     width: 100%;
     margin: 4rem 0;
