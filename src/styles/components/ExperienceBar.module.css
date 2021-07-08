@@ -1,0 +1,32 @@
+@import url(../color.css);
+
+.experienceBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experienceBarContainer span {
+    font-size: 1rem;
+}
+
+.experienceBarContainer > div {
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--gray-line);
+    margin: 0 1.5rem;
+    position: relative;
+}
+
+.experienceBarProgress {
+    height: 4px;
+    border-radius: 4px;
+    background: var(--green);
+}
+
+.currentExperience {
+    position: absolute;
+    top: 12px;
+    transform: translateX(-50%);
+}
