@@ -12,6 +12,8 @@ interface CountdownContextData {
     isActive: boolean;
     startCountdown: () => void;
     resetCountdown: () => void;
+    setIsCount: any,
+    isCount: boolean
 }
 
 export const CountdownContext = createContext({} as CountdownContextData)
@@ -25,6 +27,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     const [time, setTime] = useState(0.1 * 60);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
+    const [isCount, setIsCount] = useState(false);
 
     const minutes = Math.floor(time / 60) // Arrendondar para baixo
     const seconds = time % 60; //mod resto da divisão
@@ -59,7 +62,10 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
                 hasFinished,
                 isActive,
                 startCountdown,
-                resetCountdown
+                resetCountdown,
+                setIsCount,
+                isCount
+                
             }}>
             {children}
         </CountdownContext.Provider>

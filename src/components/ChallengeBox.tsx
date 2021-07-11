@@ -2,20 +2,23 @@ import { useContext } from 'react';
 import styles from '../styles/components/ChallengeBox.module.css'
 import { ChallengesContext } from '../contexts/ChallengesContext';
 import { CountdownContext } from '../contexts/CountdownContext';
+import { Count } from './Count';
 
 export function ChallengeBox() {
 
     const { activeChallenge, resetChallenge, comĺeteChallenge } = useContext(ChallengesContext)
-    const { resetCountdown } = useContext(CountdownContext)
+    const { resetCountdown, isCount,setIsCount } = useContext(CountdownContext)
 
     function handleChallengeSucceeded() {
         comĺeteChallenge();
         resetCountdown();
+        setIsCount(false);
     }
 
     function handleChallengeFailed() {
         resetChallenge();
         resetCountdown();
+        setIsCount(false);
     }
 
     return (
@@ -34,9 +37,17 @@ export function ChallengeBox() {
                             <button type="button" onClick={handleChallengeFailed} className={styles.challengeButton}>
                                 Pular
                             </button>
-                            <button type="button" onClick={handleChallengeSucceeded} className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
-                                Completo
-                            </button>
+                            {isCount ? (
+                                <button type="button" onClick={handleChallengeSucceeded} className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
+                                    Completo
+                                </button>
+                            ) : (
+                                <button className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
+                                   <Count time={0.1} />
+                                </button>
+                                
+                            )}
+
                         </footer>
                     </div>
                 ) : (

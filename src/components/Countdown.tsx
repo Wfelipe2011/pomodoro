@@ -8,6 +8,8 @@ import { CountdownContext } from '../contexts/CountdownContext';
 import '../styles/global.css'
 
 
+
+
 interface Countdown {
     time: number;
     isActive: boolean;
@@ -50,6 +52,7 @@ export function Countdown(props: Countdown) {
                         <button type="button" onClick={startCountdown} className={styles.countdownButton}>
                             Iniciar um ciclo
                         </button>
+
                     )}
 
                 </>
@@ -61,3 +64,4 @@ export function Countdown(props: Countdown) {
         </div>
     );
 }
+
