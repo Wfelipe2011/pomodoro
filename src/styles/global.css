@@ -39,7 +39,24 @@ body {
 }
 
 .button {
-    width: 40%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--white);
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    width: 35vw;
+    max-width: 150px;
+    height: 30px;
 }
 
 @media (max-width: 1080px) {
@@ -72,13 +89,14 @@ body {
     }
     .container {
         max-width: 600px;
+        margin-bottom: 25rem;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
     .container {
         max-width: 950px;
-
+       
         margin: 0 auto;
         padding: 2.5rem 2rem;
     }
@@ -91,6 +109,15 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 6.25rem;
+    }
+}
+
+@media (min-width: 1240px) {
+    .container {
+        max-width: 950px;
+        margin-bottom: 10rem;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
     }
 }
 

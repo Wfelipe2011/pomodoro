@@ -12,8 +12,9 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/"  component={Login} exact />
-      <Route path="/countDown"  component={App} />
-      <Route component={()=> <div>Page 404</div>} />
+      <Route path="/countDown"  component={App} exact />
+      <Route path="/countDown/:id"  component={App} />
+      <Route component={()=> <div>Page 404</div>} exact />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

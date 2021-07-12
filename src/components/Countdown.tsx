@@ -10,7 +10,6 @@ import { Content } from '../contexts/Content';
 
 export function Countdown() {
     const { isThemeDark } = useContext(Content)
-    console.log(isThemeDark)
     const { minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } = useContext(CountdownContext)
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split(''); // se não estiver dois caracter ele adiciona '0' no inicio;

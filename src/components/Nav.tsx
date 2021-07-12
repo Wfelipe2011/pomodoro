@@ -1,7 +1,10 @@
 import { useContext } from "react"
 import { Content } from "../contexts/Content"
-import React from 'react';
 import Switch from '@material-ui/core/Switch';
+import style from '../styles/components/Nav.module.css'
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import { Link, Route } from "react-router-dom";
+import { Login } from "../pages/Login";
 
 export function Nav() {
     const { isThemeDark, setIsThemeDark } = useContext(Content)
@@ -15,14 +18,20 @@ export function Nav() {
         setIsThemeDark(!isThemeDark)
     }
     return (
-        <nav className="navContanier">
-            <p>ThemeDark</p><Switch
-                checked={isThemeDark}
-                onChange={handleChange}
-                color="primary"
-                name="isThemeDark"
-                inputProps={{ 'aria-label': 'primary checkbox' }}
-            />
+        <nav className={style.navContanier}>
+            <Link className={style.link} to='/'>
+                <HomeRoundedIcon className={style.home} />
+            </Link>
+            <div className={style.button}>
+                <p>ThemeDark</p>
+                <Switch
+                    checked={isThemeDark}
+                    onChange={handleChange}
+                    color="primary"
+                    name="isThemeDark"
+                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+            </div>
         </nav>
     );
 }

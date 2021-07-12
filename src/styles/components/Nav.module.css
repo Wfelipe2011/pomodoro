@@ -1,0 +1,24 @@
+.navContanier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--white);
+    font-weight: 400;
+    background: var(--blue-dark);
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.home {
+    margin: 5px;
+    color: white;
+}
+
+.link {
+    cursor: pointer;
+}
