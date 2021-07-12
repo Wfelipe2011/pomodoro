@@ -1,16 +1,17 @@
 import { useContext } from 'react';
 import style from '../styles/components/ExperienceBar.module.css'
 import { ChallengesContext } from '../contexts/ChallengesContext';
+import { Content } from '../contexts/Content';
 
 
 export function ExperienceBar() {
-    let themeDark = true
+    const { isThemeDark } = useContext(Content)
     const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext)
 
     const percentToNextLevel = Math.round(currentExperience * 100) / experienceToNextLevel;
 
     return (
-        <header className={`${themeDark && style.experienceBarDark} ${style.experienceBarContainer}`}>
+        <header className={`${isThemeDark && style.experienceBarDark} ${style.experienceBarContainer}`}>
             <span>0 xp</span>
             <div>
                 <div className={style.experienceBarProgress} style={{ width: `${percentToNextLevel}%` }} />

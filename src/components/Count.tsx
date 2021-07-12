@@ -8,7 +8,7 @@ export function Count(props: any) {
     const { setIsCount } = useContext(CountdownContext)
 
     if (ciclo === 3) {
-        times = props.time * 3
+        times = props.time * 2
     } else if (ciclo > 3) {
         localStorage.setItem('ciclo', String(0));
     }

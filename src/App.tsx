@@ -9,12 +9,12 @@ import { ChallengesProvider } from './contexts/ChallengesContext';
 import { CountdownProvider } from './contexts/CountdownContext';
 import './styles/global.css';
 import { Nav } from './components/Nav';
-
+import {  ContentProvider } from './contexts/Content';
 
 function App() {
-  let themeDark = true
   return (
     <div className={`themeDark && dark`}>
+      <ContentProvider>
       <div className="container">
         <Nav></Nav>
         <ChallengesProvider>
@@ -26,13 +26,14 @@ function App() {
                 <CompletedChallenges />
                 <Countdown />
               </div>
-              <div>
+              <div className={`themeDark && dark`}>
                 <ChallengeBox />
               </div>
             </section>
           </CountdownProvider>
         </ChallengesProvider>
       </div>
+      </ContentProvider>
     </div>
 
   );

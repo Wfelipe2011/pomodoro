@@ -53,8 +53,8 @@ body {
 
 @media (min-width: 1024px) {
     .container {
-        max-width: 800px;
-       
+        max-width: 950px;
+
         margin: 0 auto;
         padding: 2.5rem 2rem;
     }
@@ -70,6 +70,41 @@ body {
     }
 }
 
-.dark {
+.darkBody {
     background-color: black;
+    color: var(--white);
+}
+
+.darkSpan{
+    background: rgb(5, 4, 56);
+    color: var(--white);
+}
+
+.darkButton {
+    background: rgb(9, 8, 107);
+    color: white;
+}
+
+.experienceBarDark span {
+    color: var(--white);
+}
+
+.darkStrong {
+    color: white !important;
+}
+
+.darkChallenge {
+    border: 1px solid white;
+    background: rgb(5, 4, 56);
+    color: var(--white);
+}
+
+.darkChallenge strong {
+    color: var(--white)!important;
+}
+
+.navContanier {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }

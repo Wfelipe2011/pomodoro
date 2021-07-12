@@ -3,9 +3,11 @@ import styles from '../styles/components/ChallengeBox.module.css'
 import { ChallengesContext } from '../contexts/ChallengesContext';
 import { CountdownContext } from '../contexts/CountdownContext';
 import { Count } from './Count';
+import { Content } from '../contexts/Content';
 
 export function ChallengeBox() {
-
+    const { isThemeDark } = useContext(Content)
+   
     const { activeChallenge, resetChallenge, comĺeteChallenge } = useContext(ChallengesContext)
     const { resetCountdown, isCount,setIsCount } = useContext(CountdownContext)
 
@@ -22,7 +24,7 @@ export function ChallengeBox() {
     }
 
     return (
-        <div className={styles.challengeBoxContainer}>
+        <div className={`${isThemeDark && 'darkChallenge'} ${styles.challengeBoxContainer}`}>
             {activeChallenge ?
                 (
                     <div className={styles.challengeActive}>
@@ -43,7 +45,7 @@ export function ChallengeBox() {
                                 </button>
                             ) : (
                                 <button className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
-                                   <Count time={5} />
+                                   <Count time={0.1} />
                                 </button>
                                 
                             )}

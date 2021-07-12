@@ -6,27 +6,33 @@ import { ChallengesContext } from '../contexts/ChallengesContext';
 import { CountdownContext } from '../contexts/CountdownContext';
 
 import '../styles/global.css'
+import { Content } from '../contexts/Content';
 
 export function Countdown() {
-
+    const { isThemeDark } = useContext(Content)
+    console.log(isThemeDark)
     const { minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } = useContext(CountdownContext)
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split(''); // se não estiver dois caracter ele adiciona '0' no inicio;
     const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split(''); // ex: minuto 5 ele adiciona 05;
-
+    if (isThemeDark) {
+        document.querySelector('body')?.classList.add('darkBody')
+    } else {
+        document.querySelector('body')?.classList.remove('darkBody')
+    }
 
 
     return (
-        <div className={`${hasFinished ? 'none' : ''}`}>
-            <div className={styles.countdownContainer}>
+        <div className={`${hasFinished && 'none'}`}>
+            <div className={`${styles.countdownContainer}`}>
                 <div>
-                    <span>{minuteLeft}</span>
-                    <span>{minuteRight}</span>
+                    <span className={`${isThemeDark && 'darkSpan'} `}>{minuteLeft}</span>
+                    <span className={`${isThemeDark && 'darkSpan'} `}>{minuteRight}</span>
                 </div>
                 <span>:</span>
                 <div>
-                    <span>{secondsLeft}</span>
-                    <span>{secondsRight}</span>
+                    <span className={`${isThemeDark ? 'darkSpan' : ''} `}>{secondsLeft}</span>
+                    <span className={`${isThemeDark ? 'darkSpan' : ''} `}>{secondsRight}</span>
                 </div>
             </div>
             {hasFinished ? (
@@ -36,11 +42,11 @@ export function Countdown() {
             ) : (
                 <>
                     {isActive ? (
-                        <button type="button" onClick={resetCountdown} className={`${styles.countdownButton} ${styles.countdownButtonActive}`}>
+                        <button type="button" onClick={resetCountdown} className={`${isThemeDark ? 'darkButton' : ''} ${styles.countdownButton} ${styles.countdownButtonActive}`}>
                             Abandonar ciclo
                         </button>
                     ) : (
-                        <button type="button" onClick={startCountdown} className={styles.countdownButton}>
+                        <button type="button" onClick={startCountdown} className={`${isThemeDark ? 'darkButton' : ''} ${styles.countdownButton}`}>
                             Iniciar um ciclo
                         </button>
 
