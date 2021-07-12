@@ -1,0 +1,9 @@
+{
+    "name": "Modoro Moveit",
+    "short_name": "ModoroMoveit",
+    "theme_color": "#4953b8",
+    "background_color": "#4436bb",
+    "display": "standalone",
+    "scope": "/index.html",
+    "start_url": "/"
+  }

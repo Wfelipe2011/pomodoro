@@ -9,9 +9,41 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=Rajdhani:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <meta name="theme-color" content="#f9f9f9" />
+
+    <link rel="canonical" href="https://modoro-moveit.vercel.app/" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="edson iOS" />
+    <link rel="apple-touch-icon" href="./icons/icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="./icons/icon.png">
     <title>Modoro | Moveit</title>
   </head>
   <body id="body">
+    <script>
+      if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+          console.log(
+            "[PWA Builder] active service worker found, no need to register"
+          );
+        } else {
+          // Register the service worker
+          navigator.serviceWorker
+            .register("pwabuilder-sw.js", {
+              scope: "./",
+            })
+            .then(function (reg) {
+              console.log(
+                "[PWA Builder] Service worker has been registered for scope: " +
+                  reg.scope
+              );
+            });
+        }
+      }
+    </script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
