@@ -4,19 +4,26 @@ import { Link } from "react-router-dom";
 
 
 export function Login() {
-    const [user, setUser] = useState();
+    const [user, setUser]:any = useState(null);
 
-    function change(e:any) {
-      setUser(e.target.value)
+
+    function handleChange(e: any) {
+        setUser(e.target.value)
     }
     return (
         <Container maxWidth="sm">
-            <form noValidate autoComplete="off" className="container form">
+            <form noValidate autoComplete="off" className="container form" >
                 <p>Bem Vindo ao Modoro Moveit!</p>
                 <img src="/icons/icon.png" />
-                <div className="input"><TextField id="user" onChange={change} label="UserName" /></div>
-                <div className="button"><Link className="button" to={`/countDown/${user}`}>Iniciar</Link></div>
+                <div className="input"><TextField required={true} id="user" onChange={handleChange} label="UserName" /></div>
+                {user != null && user.length > 3 ? (
+                    <div className="button"><Link to={`/countDown/${user}`} className="button">Iniciar</Link></div>
+                ) : (
+                    <div className="button"><button className="button buttonDisabled" type="submit" >Iniciar</button></div>
+                )}
+
             </form>
         </Container >
     )
 }
+

@@ -59,6 +59,10 @@ body {
     height: 30px;
 }
 
+.buttonDisabled {
+    background: var(--text);
+}
+
 @media (max-width: 1080px) {
 }
 
