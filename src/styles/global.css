@@ -69,3 +69,7 @@ body {
         gap: 6.25rem;
     }
 }
+
+.dark {
+    background-color: black;
+}
