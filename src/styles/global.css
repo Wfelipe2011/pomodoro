@@ -63,18 +63,14 @@ body {
     background: var(--text);
 }
 
-@media (max-width: 1080px) {
-}
 
-@media (max-width: 720px) {
-}
 
 @media (min-width: 0) {
     html {
         font-size: 70%;
     }
     .container {
-        height: 100vh;
+        height: 75vh;
 
         display: flex;
         flex-direction: column;

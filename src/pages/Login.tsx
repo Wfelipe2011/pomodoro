@@ -1,4 +1,4 @@
-import { Button, Container, TextField } from "@material-ui/core";
+import {Container, TextField } from "@material-ui/core";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export function Login() {
                 {user != null && user.length > 3 ? (
                     <div className="button"><Link to={`/countDown/${user}`} className="button">Iniciar</Link></div>
                 ) : (
-                    <div className="button"><button className="button buttonDisabled" type="submit" >Iniciar</button></div>
+                    <div className="button"><a className="button buttonDisabled">Iniciar</a></div>
                 )}
 
             </form>

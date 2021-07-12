@@ -1,15 +1,15 @@
 
-import { ChallengeBox } from './components/ChallengeBox';
-import { CompletedChallenges } from './components/CompletedChallenges';
-import { Countdown } from './components/Countdown';
-import { ExperienceBar } from './components/ExperienceBar';
-import { Profile } from './components/Profile';
+import { ChallengeBox } from './components/Challenge/ChallengeBox';
+import { CompletedChallenges } from './components/CompleteChallenge/CompletedChallenges';
+import { Countdown } from './components/Count/Countdown';
+import { ExperienceBar } from './components/ExperienceBar/ExperienceBar';
+import { Profile } from './components/Profile/Profile';
 import { ChallengesProvider } from './contexts/ChallengesContext';
 import { CountdownProvider } from './contexts/CountdownContext';
 import './styles/global.css';
-import { Nav } from './components/Nav';
+import { Nav } from './components/Nav/Nav';
 import { ContentProvider } from './contexts/Content';
-import { Footer } from './components/Footer';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
   return (

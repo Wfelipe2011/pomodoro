@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import style from '../styles/components/ExperienceBar.module.css'
-import { ChallengesContext } from '../contexts/ChallengesContext';
-import { Content } from '../contexts/Content';
+import style from './ExperienceBar.module.css'
+import { ChallengesContext } from '../../contexts/ChallengesContext';
+import { Content } from '../../contexts/Content';
 
 
 export function ExperienceBar() {

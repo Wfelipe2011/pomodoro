@@ -1,10 +1,9 @@
 import { useContext } from "react"
-import { Content } from "../contexts/Content"
+import { Content } from "../../contexts/Content"
 import Switch from '@material-ui/core/Switch';
-import style from '../styles/components/Nav.module.css'
+import style from './Nav.module.css'
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import { Link, Route } from "react-router-dom";
-import { Login } from "../pages/Login";
 
 export function Nav() {
     const { isThemeDark, setIsThemeDark } = useContext(Content)

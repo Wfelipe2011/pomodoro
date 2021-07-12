@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import styles from '../styles/components/ChallengeBox.module.css'
-import { ChallengesContext } from '../contexts/ChallengesContext';
-import { CountdownContext } from '../contexts/CountdownContext';
-import { Count } from './Count';
-import { Content } from '../contexts/Content';
+import styles from './ChallengeBox.module.css'
+import { ChallengesContext } from '../../contexts/ChallengesContext';
+import { CountdownContext } from '../../contexts/CountdownContext';
+import { Count } from '../Count/Count';
+import { Content } from '../../contexts/Content';
 
 export function ChallengeBox() {
     const { isThemeDark } = useContext(Content)

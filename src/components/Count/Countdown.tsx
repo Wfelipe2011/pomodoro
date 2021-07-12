@@ -1,12 +1,9 @@
-import { useEffect } from 'react';
 import { useContext } from 'react';
-import { useState } from 'react';
-import styles from '../styles/components/Countdown.module.css'
-import { ChallengesContext } from '../contexts/ChallengesContext';
-import { CountdownContext } from '../contexts/CountdownContext';
+import styles from './Countdown.module.css'
+import { CountdownContext } from '../../contexts/CountdownContext';
 
-import '../styles/global.css'
-import { Content } from '../contexts/Content';
+import '../../styles/global.css'
+import { Content } from '../../contexts/Content';
 
 export function Countdown() {
     const { isThemeDark } = useContext(Content)
