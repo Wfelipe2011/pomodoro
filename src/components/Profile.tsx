@@ -19,7 +19,7 @@ export function Profile() {
                 <strong className={`${isThemeDark && 'darkStrong'}`}>{userName}</strong>
 
                 <p>
-                    <img src="icons/level.png" alt="Level Up" />
+                    <img src="/icons/level.png" alt="Level Up" />
                     Level {level}
                 </p>
             </div>

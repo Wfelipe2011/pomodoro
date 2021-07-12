@@ -3,7 +3,6 @@ import { ChallengeBox } from './components/ChallengeBox';
 import { CompletedChallenges } from './components/CompletedChallenges';
 import { Countdown } from './components/Countdown';
 import { ExperienceBar } from './components/ExperienceBar';
-import { Login } from './components/Login';
 import { Profile } from './components/Profile';
 import { ChallengesProvider } from './contexts/ChallengesContext';
 import { CountdownProvider } from './contexts/CountdownContext';

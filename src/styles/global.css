@@ -18,6 +18,30 @@ body {
     align-content: center;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form img {
+    max-width: 150px;
+}
+
+.form p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.input {
+    margin: 2rem 0;
+}
+
+.button {
+    width: 40%;
+}
+
 @media (max-width: 1080px) {
 }
 
@@ -75,7 +99,7 @@ body {
     color: var(--white);
 }
 
-.darkSpan{
+.darkSpan {
     background: rgb(5, 4, 56);
     color: var(--white);
 }
@@ -100,7 +124,7 @@ body {
 }
 
 .darkChallenge strong {
-    color: var(--white)!important;
+    color: var(--white) !important;
 }
 
 .navContanier {
