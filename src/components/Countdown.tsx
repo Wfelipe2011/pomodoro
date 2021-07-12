@@ -7,16 +7,7 @@ import { CountdownContext } from '../contexts/CountdownContext';
 
 import '../styles/global.css'
 
-
-
-
-interface Countdown {
-    time: number;
-    isActive: boolean;
-    ActiveChallenge?: () => void;
-}
-
-export function Countdown(props: Countdown) {
+export function Countdown() {
 
     const { minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } = useContext(CountdownContext)
 

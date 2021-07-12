@@ -1,7 +1,7 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 
 import challenges from '../challenges.json';
-
+import challengeXP2 from '../challengeXP2.json';
 
 interface ChallengesProviderProps {
     children: ReactNode
@@ -58,18 +58,23 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
     }
 
     function startNewChallenge() {
-        const randonChallengeIndex = Math.floor(Math.random() * challenges.length);
-        const challenge = challenges[randonChallengeIndex];
+        if (Number(localStorage.getItem('ciclo')) === 3) {
+            setChallenge(challengeXP2)
+        } else {
+            setChallenge(challenges)
+        }
+    }
+
+    function setChallenge(challengeType: any) {
+        const randonChallengeIndex = Math.floor(Math.random() * challengeType.length);
+        const challenge = challengeType[randonChallengeIndex];
         setActiveChallenge(challenge)
-
         new Audio('/notification.mp3').play();
-
         if (Notification.permission === 'granted') {
             new Notification('Novo desafio 🎉', {
                 body: `Valendo ${challenge.amount}xp!`
             })
         }
-
     }
 
     function resetChallenge() {
@@ -81,7 +86,7 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
             return;
         }
 
-        const { amount } = activeChallenge
+        let { amount } = activeChallenge
 
         let finalExperience = currentExperience + amount;
 

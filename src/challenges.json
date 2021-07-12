@@ -1,37 +1,36 @@
 [
   {
-    "type": 1,
-    "description": "Fazer alongamento",
-    "amount": 80
-  },
-  {
-    "type": 2,
-    "description": "Fazer alongamento 2",
-    "amount": 88
-  },
-  {
-    "type": 3,
-    "description": "Fazer alongamento 3",
+    "type": 11,
+    "description": "Aproveite para tomar água e dar uma relaxada!",
+    "amount": 100
+  },{
+    "type": 16,
+    "description": "Aproveite para dar uma relaxada!",
     "amount": 100
   },
   {
-    "type": 4,
-    "description": "Fazer alongamento 4",
-    "amount": 200
-  },
-  {
-    "type": 5,
-    "description": "Fazer alongamento 5",
-    "amount": 50
+    "type": 15,
+    "description": "Aproveite para fechar os olhos por alguns segundos!",
+    "amount": 120
   },
   {
     "type": 3,
-    "description": "Fazer alongamento 6",
-    "amount": 60
+    "description": "Aproveite para alongar o pescoço e os braços!",
+    "amount": 150
   },
   {
-    "type": 0,
-    "description": "Fazer alongamento 7",
-    "amount": 70
+    "type": 4,
+    "description": "Aproveite para levantar e buscar um chá ou café!",
+    "amount": 80
+  },
+  {
+    "type": 8,
+    "description": "Aproveite para responder suas mensagens!",
+    "amount": 50
+  },
+  {
+    "type": 17,
+    "description": "Aproveite para responder suas mensagens!",
+    "amount": 50
   }
 ]

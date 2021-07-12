@@ -19,7 +19,7 @@ function App() {
             <div>
               <Profile />
               <CompletedChallenges />
-              <Countdown time={0.1} isActive={false} />
+              <Countdown/>
             </div>
             <div>
               <ChallengeBox />
