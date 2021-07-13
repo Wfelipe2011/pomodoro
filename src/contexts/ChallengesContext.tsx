@@ -27,7 +27,7 @@ interface ChallengesContextData {
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
-export function ChallengesProvider({ children }: ChallengesProviderProps) {
+export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const userData = {
         level: Number(localStorage.getItem('level')),
         currentExperience: Number(localStorage.getItem('currentExperience')),

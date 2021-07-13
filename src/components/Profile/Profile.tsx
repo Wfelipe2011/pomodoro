@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styles from './Profile.module.css'
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
@@ -6,23 +6,40 @@ import '../../styles/global.css'
 import { Content } from '../../contexts/Content';
 import { useParams } from 'react-router-dom';
 
+interface UserGit {
+    login: string;
+    avatar_url: string;
+    bio: string;
+    name: string;
+}
+
 export const Profile = () => {
     const { isThemeDark } = useContext(Content)
     const { id }: any = useParams();
+    const [user, setUser] = useState({} as UserGit)
 
-    console.log(Boolean("https://avatars.githubusercontent.com/u/60045911?v=4"))
+    fetch(`https://api.github.com/users/${id}`).then((body) => {
+        return body.json()
+    }).then(dados => {
+        setUser(dados)
+    })
 
     const userName = id;
     localStorage.setItem('user', userName)
-    
+
     const { level } = useContext(ChallengesContext)
 
     return (
 
         <div className={`${styles.profileContainer}`}>
-            <img src='/icons/level-up.png' alt={userName} />
+            <img
+                src={user.avatar_url ? '/icons/level-up.png' : user.avatar_url}
+                alt={user.login ? 'UserName' : user.login} />
             <div>
-                <strong className={`${isThemeDark && 'darkStrong'}`}>{localStorage.getItem('user')}</strong>
+                <strong className={`${isThemeDark && 'darkStrong'}`}>{ user.name ? user.name : localStorage.getItem('user')}</strong>
+                {user.bio && (
+                    <p>{user.bio}</p>
+                )}
                 <p>
                     <img src="/icons/level.png" alt="Level Up" />
                     Level {level}
