@@ -45,7 +45,7 @@ export function ChallengeBox() {
                                 </button>
                             ) : (
                                 <button className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
-                                   <Count time={0.1} />
+                                   <Count time={5} />
                                 </button>
                                 
                             )}

@@ -2,26 +2,26 @@
   {
     "type": 1,
     "description": "Hora de levantar e fazer uma caminhada!",
-    "amount": 600
+    "amount": 300
   },
   {
     "type": 12,
     "description": "Hora de relaxar um pouco!",
-    "amount": 300
+    "amount": 200
   },
   {
     "type": 5,
     "description": "Hora de levantar e fazer um alogamento!",
-    "amount": 600
+    "amount": 300
   },
   {
     "type": 13,
     "description": "Que tal um lanchê?",
-    "amount": 400
+    "amount": 300
   },
   {
     "type": 16,
     "description": "Hora de relaxar um pouco!",
-    "amount": 300
+    "amount": 200
   }
 ]

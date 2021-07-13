@@ -10,6 +10,8 @@ export const Profile = () => {
     const { isThemeDark } = useContext(Content)
     const { id }: any = useParams();
 
+    console.log(Boolean("https://avatars.githubusercontent.com/u/60045911?v=4"))
+
     const userName = id;
     localStorage.setItem('user', userName)
     

@@ -1,12 +1,12 @@
-import {Container, TextField } from "@material-ui/core";
+import { Container, TextField } from "@material-ui/core";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 
 export function Login() {
-    const [user, setUser]:any = useState(null);
+    const [user, setUser]: any = useState(null);
 
-
+    localStorage.setItem('ciclo', '1')
     function handleChange(e: any) {
         setUser(e.target.value)
     }

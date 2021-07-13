@@ -8,7 +8,7 @@ export function Count(props: any) {
     const { setIsCount } = useContext(CountdownContext)
 
     if (ciclo === 3) {
-        times = props.time * 2
+        times = props.time * 3
     } else if (ciclo > 3) {
         localStorage.setItem('ciclo', String(0));
     }
@@ -37,7 +37,7 @@ export function Count(props: any) {
                     body: `Clique no botão para resgatar sua recompensa!`
                 })
             }
-            localStorage.setItem('ciclo', String(ciclo + 3))
+            localStorage.setItem('ciclo', String(ciclo + 1))
             setIsCount(true)
             setIsActive(false)
 

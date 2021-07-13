@@ -89,14 +89,17 @@ body {
     }
     .container {
         max-width: 600px;
-        margin-bottom: 25rem;
+        margin-bottom: 30rem;
+    }
+    .container section {
+        height: 150vh;
     }
 }
 
 @media (min-width: 900px) {
     .container {
         max-width: 950px;
-       
+        height: 120vh;
         margin: 0 auto;
         padding: 2.5rem 2rem;
     }
@@ -107,6 +110,7 @@ body {
 
     .container section {
         display: grid;
+        height: 120vh;
         grid-template-columns: 1fr 1fr;
         gap: 6.25rem;
     }
