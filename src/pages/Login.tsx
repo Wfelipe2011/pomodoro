@@ -15,7 +15,7 @@ export function Login() {
             <form noValidate autoComplete="off" className="container form" >
                 <p>Bem Vindo ao Modoro Moveit!</p>
                 <img src="/icons/icon.png" />
-                <div className="input"><TextField required={true} id="user" onChange={handleChange} label="UserName" /></div>
+                <div className="input"><TextField required={true} id="user" onChange={handleChange} label="Github user or name" /></div>
                 {user != null && user.length > 3 ? (
                     <div className="button"><Link to={`/countDown/${user}`} className="button">Iniciar</Link></div>
                 ) : (
