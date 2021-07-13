@@ -33,13 +33,10 @@ export const Profile = () => {
 
         <div className={`${styles.profileContainer}`}>
             <img
-                src={user.avatar_url ? '/icons/level-up.png' : user.avatar_url}
-                alt={user.login ? 'UserName' : user.login} />
+                src={user.avatar_url ? user.avatar_url : '/icons/level-up.png'}
+                alt={user.login ? user.login : 'UserName'} />
             <div>
-                <strong className={`${isThemeDark && 'darkStrong'}`}>{ user.name ? user.name : localStorage.getItem('user')}</strong>
-                {user.bio && (
-                    <p>{user.bio}</p>
-                )}
+                <strong className={`${isThemeDark && 'darkStrong'}`}>{user.name ? user.name : localStorage.getItem('user')}</strong>
                 <p>
                     <img src="/icons/level.png" alt="Level Up" />
                     Level {level}
