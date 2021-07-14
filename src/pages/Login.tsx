@@ -7,22 +7,22 @@ import { useEffect } from 'react';
 
 export function Login() {
     const { isGitHub, setIsGitHub, user, setUser, userGit, setUserGit, setTimeMinutes, setStopMinutes } = useContext(Content)
-   
+
     localStorage.setItem('ciclo', '1')
 
     function handleChange(e: any) {
         if (e.target.id == 'user') {
-            if(e.target.value == '' && isGitHub){
-                setIsGitHub(!isGitHub)
-            }
             setUser(e.target.value)
-            if (isGitHub) {
-                fetch(`https://api.github.com/users/${user}`)
-                    .then((body) => {
-                        return body.json()
-                    }).then(dados => {
-                        setUserGit(dados)
-                    })
+            if (isGitHub && e.target.value > 2) {
+                setTimeout(() => {
+                    fetch(`https://api.github.com/users/${user}`)
+                        .then((body) => {
+                            return body.json()
+                        }).then(dados => {
+                            console.log({ dados })
+                            setUserGit(dados)
+                        })
+                }, 300)
             }
         }
         if (e.target.id == 'minutes') {
@@ -36,11 +36,15 @@ export function Login() {
 
     function handleChangeIsGitHub() {
         setIsGitHub(!isGitHub)
-        fetch(`https://api.github.com/users/${user}`).then((body) => {
-            return body.json()
-        }).then(dados => {
-            setUserGit(dados)
-        })
+        setTimeout(() => {
+            fetch(`https://api.github.com/users/${user}`)
+                .then((body) => {
+                    return body.json()
+                }).then(dados => {
+                    console.log({ dados })
+                    setUserGit(dados)
+                })
+        }, 300)
     }
 
     return (
@@ -68,9 +72,6 @@ export function Login() {
                         <div className="button"><a className="button buttonDisabled">Iniciar</a></div>
                     )}
                 </div>
-
-
-
             </form>
         </Container >
     )

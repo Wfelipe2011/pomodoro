@@ -60,7 +60,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     }
 
     function startNewChallenge() {
-        if (stopMinutes > 15) {
+        if (stopMinutes >= 15) {
             setChallenge(challengeXP2)
         } else {
             setChallenge(challenges)
