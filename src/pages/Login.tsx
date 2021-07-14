@@ -12,6 +12,9 @@ export function Login() {
 
     function handleChange(e: any) {
         if (e.target.id == 'user') {
+            if(e.target.value == '' && isGitHub){
+                setIsGitHub(!isGitHub)
+            }
             setUser(e.target.value)
             if (isGitHub) {
                 fetch(`https://api.github.com/users/${user}`)
@@ -44,11 +47,11 @@ export function Login() {
         <Container maxWidth="sm">
             <form noValidate autoComplete="off" className="container form">
                 <p>Bem Vindo ao Modoro Moveit!</p>
-                <img src={isGitHub && userGit.avatar_url ? userGit.avatar_url : "/icons/icon.png"} className={`${isGitHub && userGit.avatar_url && 'imageRadius'}`} />
+                <img src={isGitHub ? userGit.avatar_url ? userGit.avatar_url : "/icons/icon.png" : "/icons/icon.png"} className={`${isGitHub && userGit.avatar_url && 'imageRadius'}`} />
                 <div className="inputContainer" >
                     <input className="input" required={true} name="user" type='text' id="user" onChange={handleChange} placeholder="UserName *" />
-                    <input className="input" required={true} name="minutes" type='number' id="minutes" onChange={handleChange} placeholder="Cycle minutes *" />
-                    <input className="input" required={true} name="stopMinutes" type='number' id="stopMinutes" onChange={handleChange} placeholder="Stop Cycle minutes *" />
+                    <input className="input" required={true} name="minutes" type='number' id="minutes" onChange={handleChange} placeholder="Cycle minutes " />
+                    <input className="input" required={true} name="stopMinutes" type='number' id="stopMinutes" onChange={handleChange} placeholder="Stop Cycle minutes " />
                     <div className="gitHubContainer"><span>GitHub User?</span>
                         <Switch
                             id="isGitHub"
