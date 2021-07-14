@@ -1,17 +1,12 @@
 import { useContext, useEffect, useState } from "react";
+import { Content } from "../../contexts/Content";
 import { CountdownContext } from "../../contexts/CountdownContext";
 import styles from './Countdown.module.css'
 
 export function Count(props: any) {
-    let times = props.time
-    const ciclo = Number(localStorage.getItem('ciclo'))
+    const { stopMinutes } = useContext(Content)
+    let times = stopMinutes || 5
     const { setIsCount } = useContext(CountdownContext)
-
-    if (ciclo === 3) {
-        times = props.time * 3
-    } else if (ciclo > 3) {
-        localStorage.setItem('ciclo', String(0));
-    }
 
     const [time, setTime] = useState(times * 60);
     const [isActive, setIsActive] = useState(false);
@@ -37,7 +32,6 @@ export function Count(props: any) {
                     body: `Clique no botão para resgatar sua recompensa!`
                 })
             }
-            localStorage.setItem('ciclo', String(ciclo + 1))
             setIsCount(true)
             setIsActive(false)
 

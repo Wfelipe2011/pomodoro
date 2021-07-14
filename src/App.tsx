@@ -14,7 +14,6 @@ import { Footer } from './components/Footer/Footer';
 function App() {
   return (
     <div className={`themeDark && dark`}>
-      <ContentProvider>
         <Nav></Nav>
         <div className="container">
           <ChallengesProvider>
@@ -33,7 +32,6 @@ function App() {
             </CountdownProvider>
           </ChallengesProvider>
         </div>
-      </ContentProvider>
       <Footer/>
     </div>
 

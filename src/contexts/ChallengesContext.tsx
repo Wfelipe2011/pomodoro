@@ -1,7 +1,8 @@
-import { createContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useState, ReactNode, useEffect, useContext } from "react";
 
 import challenges from '../challenges.json';
 import challengeXP2 from '../challengeXP2.json';
+import { Content } from "./Content";
 
 interface ChallengesProviderProps {
     children: ReactNode
@@ -37,6 +38,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const [currentExperience, setCurrentExperience] = useState(userData.currentExperience || 0);
     const [challengesCompleted, setChallengesCompleted] = useState(userData.challengesCompleted || 0)
 
+    const { stopMinutes } = useContext(Content)
     const [activeChallenge, setActiveChallenge] = useState<any>(null)
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
@@ -58,7 +60,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     }
 
     function startNewChallenge() {
-        if (Number(localStorage.getItem('ciclo')) === 3) {
+        if (stopMinutes > 15) {
             setChallenge(challengeXP2)
         } else {
             setChallenge(challenges)

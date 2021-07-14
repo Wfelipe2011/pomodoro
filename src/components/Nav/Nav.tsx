@@ -16,6 +16,7 @@ export function Nav() {
     function handleChange() {
         setIsThemeDark(!isThemeDark)
     }
+
     return (
         <nav className={style.navContanier}>
             <Link className={style.link} to='/'>
