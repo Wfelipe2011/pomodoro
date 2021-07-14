@@ -5,7 +5,7 @@ import { CountdownContext } from '../../contexts/CountdownContext';
 import '../../styles/global.css'
 import { Content } from '../../contexts/Content';
 
-export function Countdown() {
+export const Countdown = () => {
     const { isThemeDark } = useContext(Content)
     const { minutes, seconds, hasFinished, isActive, resetCountdown, startCountdown } = useContext(CountdownContext)
 

@@ -1,27 +1,28 @@
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 import styles from './ChallengeBox.module.css'
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 import { Count } from '../Count/Count';
 import { Content } from '../../contexts/Content';
 
+
 export function ChallengeBox() {
     const { isThemeDark } = useContext(Content)
-   
-    const { activeChallenge, resetChallenge, comĺeteChallenge } = useContext(ChallengesContext)
-    const { resetCountdown, isCount,setIsCount } = useContext(CountdownContext)
 
-    function handleChallengeSucceeded() {
+    const { activeChallenge, resetChallenge, comĺeteChallenge } = useContext(ChallengesContext)
+    const { resetCountdown, isCount, setIsCount } = useContext(CountdownContext)
+
+    const handleChallengeSucceeded = useCallback(() => {
         comĺeteChallenge();
         resetCountdown();
         setIsCount(false);
-    }
+    }, [])
 
-    function handleChallengeFailed() {
+    const handleChallengeFailed = useCallback(() => {
         resetChallenge();
         resetCountdown();
         setIsCount(false);
-    }
+    }, [])
 
     return (
         <div className={`${isThemeDark && 'darkChallenge'} ${styles.challengeBoxContainer}`}>
@@ -45,9 +46,9 @@ export function ChallengeBox() {
                                 </button>
                             ) : (
                                 <button className={`${styles.challengeButton} ${styles.challengeButtonSuccess}`}>
-                                   <Count time={5} />
+                                    <Count time={5} />
                                 </button>
-                                
+
                             )}
 
                         </footer>

@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode, useEffect, useContext } from "react";
+import { createContext, useState, ReactNode, useEffect, useContext, useCallback } from "react";
 
 import challenges from '../challenges.json';
 import challengeXP2 from '../challengeXP2.json';
@@ -55,19 +55,19 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
 
     }, [level, currentExperience, challengesCompleted])
 
-    function levelUp() {
+    const levelUp = useCallback(() => {
         setLevel(level + 1)
-    }
+    }, [])
 
-    function startNewChallenge() {
+    const startNewChallenge = useCallback(() => {
         if (stopMinutes >= 15) {
             setChallenge(challengeXP2)
         } else {
             setChallenge(challenges)
         }
-    }
+    }, [])
 
-    function setChallenge(challengeType: any) {
+    const setChallenge = useCallback((challengeType: any) => {
         const randonChallengeIndex = Math.floor(Math.random() * challengeType.length);
         const challenge = challengeType[randonChallengeIndex];
         setActiveChallenge(challenge)
@@ -77,13 +77,13 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
                 body: `Valendo ${challenge.amount}xp!`
             })
         }
-    }
+    }, [])
 
-    function resetChallenge() {
+    const resetChallenge = useCallback(() => {
         setActiveChallenge(null)
-    }
+    }, [])
 
-    function comĺeteChallenge() {
+    const comĺeteChallenge = useCallback(() => {
         if (!activeChallenge) {
             return;
         }
@@ -101,7 +101,7 @@ export const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
         setCurrentExperience(finalExperience);
         setActiveChallenge(null);
         setChallengesCompleted(challengesCompleted + 1)
-    }
+    }, [])
 
     return (
         <ChallengesContext.Provider

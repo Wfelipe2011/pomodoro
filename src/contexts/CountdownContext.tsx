@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { createContext, useState, ReactNode, useEffect, useContext } from "react";
 import { ChallengesContext } from "./ChallengesContext";
 import { Content } from "./Content";
@@ -35,16 +36,16 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     const minutes = Math.floor(time / 60) // Arrendondar para baixo
     const seconds = time % 60; //mod resto da divisão
 
-    function startCountdown() {
+    const startCountdown = useCallback(() => {
         setIsActive(true);
-    }
+    }, [])
 
-    function resetCountdown() {
+    const resetCountdown = useCallback(() => {
         clearTimeout(countdownTimeout)
         setHasFinished(false)
         setIsActive(false);
         setTime(timeMinutes * 60)
-    }
+    }, [])
 
     useEffect(() => {
         if (isActive && time > 0) {
@@ -68,7 +69,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
                 resetCountdown,
                 setIsCount,
                 isCount
-                
+
             }}>
             {children}
         </CountdownContext.Provider>
